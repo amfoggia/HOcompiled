@@ -1,0 +1,6 @@
+# Esto compila y genera objetos
+$ gcc -c c-main.c
+$ gcc -c c-sum.c
+
+# Ahora linkeamos todo
+$ gcc c-main.o c-sum.o -o ejecutable.x
