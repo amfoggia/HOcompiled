@@ -1,0 +1,29 @@
+0000000000000000 t add_abs     
+	-add_abs esta definida como static, por eso la minuscula (no se puede acceder desde otro archivo)
+	-la letra t es porque es una funcion que se ejecuta
+
+000000000000002a T main
+	-main no esta definida como static, por eso la mayuscula (si se puede acceder desde otro archivo)
+	-la letra T es porque es una funcion que se ejecuta
+
+                 U printf
+	-printf no esta definida en el archivo visibility.c solo tiene el header <stdio.h> que le dice como
+	esta declarada, el tipo de las variables que toma y el tipo del resultado que da, pero no esta definida
+	en el archivo .c, por eso la letra U
+	-la mayuscula es porque donde esta definida no lo esta como static
+
+0000000000000000 r val1
+	-val1 esta definida como static, por eso la minuscula (no se puede acceder desde otro archivo)
+	-val1 esta definida como constante, por eso la letra r (read-only data)
+
+0000000000000004 R val2
+	-val2 no esta definida como static, por eso la mayuscula (si se puede acceder desde otro archivo)
+	-val2 esta definida como constante, por eso la letra R (read-only data)
+
+0000000000000000 d val3
+	-val3 esta definida como static, por eso la minuscula (no se puede acceder desde otro archivo)
+	-val3 no esta definida como constante, por eso la letra d (read/write data)
+
+0000000000000004 D val4
+	-val4 no esta definida como static, por eso la mayuscula (si se puede acceder desde otro archivo)
+	-val4 no esta definida como constante, por eso la D (read/write data)
