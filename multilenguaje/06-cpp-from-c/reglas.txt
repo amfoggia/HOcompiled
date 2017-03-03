@@ -1,0 +1,19 @@
+# Esto compila y genera objetos
+# El .cpp compila con g++ y con gcc:
+    $ g++ -c cpp-sum.cpp
+    $ gcc -c cpp-sum.cpp
+# El .c no compila con gcc
+    $ g++ -c c-main.c
+# El .c al querer compilarlo con gcc da error:
+
+    In file included from c-main.c:2:0:
+cpp-sum.h:4:8: error: expected identifier or ‘(’ before string constant
+ extern "C" {int sum_abs(const int * const in, const int num);}
+        ^
+c-main.c: In function ‘main’:
+c-main.c:15:24: warning: implicit declaration of function ‘sum_abs’ [-Wimplicit-function-declaration]
+     printf("sum=%d\n", sum_abs(data, num));
+                        ^
+                        
+# Ahora linkeamos y se crea el ejecutable
+$ gcc cpp-sum.o c-main.o -o cpp_from_c.x
