@@ -1,0 +1,8 @@
+# Esto compila y genera objetos
+$ gfortran -c f-main.f90
+$ gfortran -c f-sum.f90
+
+# Ahora linkeamos
+$ gfortran f-main.o f-sum.o -o suma.x
+
+# El ejecutable es suma.x
