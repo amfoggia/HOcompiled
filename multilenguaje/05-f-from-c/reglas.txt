@@ -1,0 +1,6 @@
+# Esto compila y genera objetos
+$ gfortran -c f-sum.f90
+$ gcc -c c-main.c
+
+# Ahora linkeamos y creamos el ejecutable
+$ gcc c-main.o f-sum.o -o f_from_c.x
