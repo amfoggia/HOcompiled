@@ -25,7 +25,7 @@ preprocessing: $(PREPROCESSED)
 assembler: $(ASSEMBLER)
 
 object: $(OBJECTS)
-
+  	
 executable: $(EXECUTABLES)
 
 all: preprocessing assembler object executable
