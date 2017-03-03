@@ -1,4 +1,3 @@
-
 #ifndef C_SUM_H
 #define C_SUM_H
 

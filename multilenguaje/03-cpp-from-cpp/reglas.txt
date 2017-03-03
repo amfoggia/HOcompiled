@@ -1,0 +1,7 @@
+# Esto compila y crea objetos
+$ gcc -c cpp-main.cpp
+$ gcc -c cpp-sum.cpp
+
+# Ahora linkeamos todos. Si usamos gcc tenemos que agregar el flag de las librerias de c++ (don't know el flag en este momento),
+# entonces usamos el compilador de c++
+$ g++ cpp-main.o cpp-sum.o -o programa_cpp.x
