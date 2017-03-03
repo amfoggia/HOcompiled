@@ -1,0 +1,8 @@
+# Esto compila y genera objetos
+# Para compilar el .f90 hay dos formas:
+    $ gfortran -c f-main.f90
+    $ gcc -c f-main.f90 -lgfortran
+$ gcc -c c-sum.c
+
+# Ahora linkeamos y creamos el ejecutable
+$ gcc c-sum.o f-main.o -lgfortran -o c_from_f.x
