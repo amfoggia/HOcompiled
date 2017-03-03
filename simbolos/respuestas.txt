@@ -27,3 +27,5 @@
 0000000000000004 D val4
 	-val4 no esta definida como static, por eso la mayuscula (si se puede acceder desde otro archivo)
 	-val4 no esta definida como constante, por eso la D (read/write data)
+
+-val5 no aparece porque es interna a la funcion main, no existe para el afuera
