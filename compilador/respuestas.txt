@@ -1,0 +1,43 @@
+# Respuestas
+## - Qué esperan de cada paso?
+
+- Del paso del preprocesador lo que espero que "traduzca" las cosas que están después de los numerales # como los include.
+Sería, cambia la sentencia del include por lo que significa eso, puede buscar en el archivo .h cómo está declarada una función 
+y eso lo "copia y pega" en el lugar de la sentencia "# include". Compilando con $ gcc -E nombre.c -o nombre.pp_c obtenemos un 
+archivo donde hay muchas sentencias con EXTERN y declaraciones de funciones que están en "calculator.h" que incluyen las funciones 
+en "stdio.h" y la definida para este programa (suma).
+
+- Del paso de Compilación I, espero que al escribir en la terminal $ gcc -S nombre.c -o nombre.asm gcc, primero se encargue de 
+preprocesar, y segundo, traduzca eso a assembler. El archivo tiene muuchas menos líneas que el .pp_c pero más que el .c.
+
+- Del paso de Compilación II, espero que gcc traduzca el código en assembler a binario, escribiendo en la terminal 
+$ gcc -c nombre.c -o nombre.o, pasa primero por los dos pasos anteriones. Ahora ya no podemos abrir el archivo .o con un editor de 
+texto. Lo que podemos hacer es en la terminal escribir $ nm nombre.o y así vemos los objetos que hay en el programa, como funciones 
+y variables. Estas tienen unos indicadores (descriptores) del tipo de "cosa" que son y si pueden ser accedidas desde afuera o si sólo 
+desde el programa particular donde están definidas. Hay 4 letras que identifican:
+--> T funciones que se ejecutarán
+--> R read-only data
+--> D read/write data
+--> U funciones que todavía no se sabe cuánto valen
+Las mayúsculas significan que pueden usarse desde afuera, y las minúsculas que no.
+
+- El último paso es la parte de linkeo, en donde se genera el ejecutable. En la terminal podemos poner $ gcc nombre.o -o nombre.x. 
+Con el flag -v podemos ver en terminal las cosas que hace.
+
+## - Qué agregó el preprocesador?
+
+Como dije antes, en vez de tener sólo 12 líneas de código hay 866, y en esas líneas escribió (antes del programa .c) muchas sentencias 
+"typedef" y después muchas "extern", es que declara las funciones que están en la librería "stdio" y la fución declarada en el archivo 
+.h. 
+
+## - Identificar en la rutina de assembler las funciones
+
+Supongo que la parte en la están las funciones es esta:
+.LFE0:
+	.size	main, .-main
+	.globl	add_numbers
+	
+## - En qué se diferencian los símbolos del objeto y del ejecutable?
+
+Al escribir $ nm nombre.x aparece una lista más grande que antes (eran tres y ahora son 36; hay letras nuevas, como la B y la W; y 
+algunas de las cosas comienzan con _ o con __ 
